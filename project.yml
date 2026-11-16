@@ -1,0 +1,69 @@
+# Hippocampus Project Configuration
+#
+# This file defines your knowledge base instance. Claude reads it to adapt
+# vocabulary, persona, and behavior to your domain.
+#
+# After cloning the template, edit this file to match your project.
+# Then run Claude Code — it will use this configuration automatically.
+
+# Project name — appears in docs and context
+name: "My Project"
+
+# Domain — adjusts Claude's vocabulary and persona
+# Common domains: legal, architecture, consulting, research, product, general
+domain: general
+
+# Brief description of what this knowledge base tracks
+description: "A knowledge base for tracking complex, evolving information"
+
+# The role of the primary owner (used for identity/access decisions)
+owner_role: "Project Lead"
+
+# Custom persona instructions for Claude (optional)
+# Override this to shape how Claude behaves as your thinking partner
+persona: >
+  You are a knowledge management partner. Help organize intel,
+  track open questions, maintain the mental model, and ensure
+  nothing falls through the cracks.
+
+# Domain-specific vocabulary overrides (optional)
+# Uncomment and modify to rename concepts for your domain
+# vocabulary:
+#   model: "case theory"          # MODEL.md — default: "mental model"
+#   plan: "case strategy"         # PLAN.md — default: "plan"
+#   intel: "case notes"           # INTEL.md — default: "intel"
+#   questions: "open issues"      # QUESTIONS.md — default: "open questions"
+#   decisions: "positions"        # DECISIONS.md — default: "decisions"
+#   people: "parties & contacts"  # PEOPLE.md — default: "people"
+#   workstream: "matter"          # workstreams/ — default: "workstream"
+
+# Example domain configurations:
+#
+# Legal:
+#   domain: legal
+#   owner_role: "Lead Attorney"
+#   vocabulary:
+#     model: "case theory"
+#     plan: "case strategy"
+#     intel: "case notes"
+#     questions: "open issues"
+#     decisions: "positions taken"
+#     people: "parties & counsel"
+#     workstream: "matter"
+#
+# Architecture / Engineering:
+#   domain: architecture
+#   owner_role: "AI Architect"
+#   vocabulary:
+#     model: "architecture model"
+#     plan: "roadmap"
+#     workstream: "workstream"
+#
+# Consulting:
+#   domain: consulting
+#   owner_role: "Engagement Lead"
+#   vocabulary:
+#     model: "situation assessment"
+#     plan: "engagement plan"
+#     intel: "field notes"
+#     workstream: "workstream"

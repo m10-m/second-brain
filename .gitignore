@@ -1,0 +1,6 @@
+# Per-user Claude Code identity (not shared)
+.claude/user.yml
+
+# System
+.DS_Store
+Thumbs.db

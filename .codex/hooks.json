@@ -1,0 +1,41 @@
+{
+  "description": "Codex lifecycle integration for Hippocampus. Claude Code continues to use .claude/settings.json.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$(git rev-parse --show-toplevel)/.claude/hooks/session-start.sh\"",
+            "statusMessage": "Loading Hippocampus context",
+            "additionalContextLimit": 30000
+          }
+        ]
+      },
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.codex/hippo-worklog-after-compact.py\"",
+            "statusMessage": "Restoring Hippocampus continuity",
+            "additionalContextLimit": 2000
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|Edit|Write|mcp__linear__save_comment|mcp__linear__save_issue",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/.claude/hooks/hippo-worklog-nudge.py\"",
+            "additionalContextLimit": 3000
+          }
+        ]
+      }
+    ]
+  }
+}
